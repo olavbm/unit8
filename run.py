@@ -23,13 +23,14 @@ import shutil
 import imageio
 
 from wasabi import Printer
-
+from util import parse_args
 
 msg = Printer()
+args = parse_args()
 
-class Agent:
+class Agent(nn.Module):
     def __init__(self):
-        pass
+        super().__init__()
 
     def act(self, state):
         pass
@@ -39,8 +40,13 @@ def make_env(env_id, seed):
     env.seed(seed)
 
 
+def train_agent():
+    agent = Agent()
+    env = make_env(args.env_id, 1337)
+    return agent, env
+
 def foo():
-    return 4
+    return train_agent()
 
 def test_this_is_foo():
     assert foo() == 2
