@@ -26,8 +26,17 @@ from wasabi import Printer
 
 
 msg = Printer()
-# Adding HuggingFace argument
-#
+
+class Agent:
+    def __init__(self):
+        pass
+
+    def act(self, state):
+        pass
+
+def make_env(env_id, seed):
+    env = gym.make(env_id)
+    env.seed(seed)
 
 
 def foo():
